@@ -20,17 +20,17 @@
                     </a>
                 </li>
                 <li class="md:ml-16 mt-3 md:mt-0">
-                    <a href="" class="hover:text-gray-300">Movies</a>
+                    <a href="{{ route('movies.index') }}" class="hover:text-gray-300">Movies</a>
                 </li>
                 <li class="md:ml-6 mt-3 md:mt-0">
                     <a href="" class="hover:text-gray-300">Tv Shows</a>
                 </li>
                 <li class="md:ml-6 mt-3 md:mt-0">
-                    <a href="" class="hover:text-gray-300">Actors</a>
+                    <a href="{{ route('actors.index') }}" class="hover:text-gray-300">Actors</a>
                 </li>
             </ul>
             <div class="flex flex-col md:flex-row items-center">
-                <livewire:search-drop-down>
+                @livewire('search-drop-down')
                 <div class="ml-4 mt-3 md:mt-0">
                     <a href="#">
                         <img src="/img/avatar.jpg" alt="avatar" class="rounded-full w-8 h-8">
@@ -41,5 +41,7 @@
     </nav>
     @yield('content')
     @livewireScripts
+
+    @yield('script')
 </body>
 </html>
