@@ -7,6 +7,8 @@
     <title>Movie APP</title>
 
     <link rel="stylesheet" href="/css/app.css">
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    @livewireStyles
 </head>
 <body class="font-sans bg-gray-900 text-white">
     <nav class="border-b border-gray-800">
@@ -28,12 +30,7 @@
                 </li>
             </ul>
             <div class="flex flex-col md:flex-row items-center">
-                <div class="relative mt-3 md:mt-0">
-                    <input type="text" class="bg-gray-800 text-sm rounded-full w-64 pl-8 focus:outline-none focus:shadow-lg px-4 py-1 " placeholder="Search">
-                    <div class="absolute top-0">
-                        <svg class="fill-current w-4 text-gray-500 mt-2 ml-2" viewBox="0 0 24 24"><path class="heroicon-ui" d="M16.32 14.9l5.39 5.4a1 1 0 01-1.42 1.4l-5.38-5.38a8 8 0 111.41-1.41zM10 16a6 6 0 100-12 6 6 0 000 12z"/></svg>
-                    </div>
-                </div>
+                <livewire:search-drop-down>
                 <div class="ml-4 mt-3 md:mt-0">
                     <a href="#">
                         <img src="/img/avatar.jpg" alt="avatar" class="rounded-full w-8 h-8">
@@ -43,5 +40,6 @@
         </div>
     </nav>
     @yield('content')
+    @livewireScripts
 </body>
 </html>
