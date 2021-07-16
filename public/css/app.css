@@ -31856,7 +31856,7 @@ video {
 }
 
 .bg-overlay {
-  background: linear-gradient(var(--overlay-angle, 0deg), var(--overlay-colors)), var(--overlay-image);
+  background: linear-gradient(var(--overlay-colors)), var(--overlay-image);
   background-position: center;
   background-size: cover;
 }
