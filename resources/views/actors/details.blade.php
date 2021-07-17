@@ -49,9 +49,9 @@
                 <div class="grid place-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     @foreach ($knownForTittles as $title)
                     <div class="mt-4">
-                        <a href="{{ route('movies.show',$title['id']) }}" class=""><img src="{{ $title['poster_path'] }}" alt="poster" class=" hover:opacity-75 transition ease-in-out duration-150"></a>
-                        <a href="" class="text-sm leading-normal block text-gray-400 hover:text-white mt-1"> {{ $title['title'] }}</a>
-                        <div class="text-sm text-gray-400">As {{ $title['character'] }}</div>
+                        <a href="{{ $title['link'] }}" class=""><img src="{{ $title['poster_path'] }}" alt="poster" class=" hover:opacity-75 transition ease-in-out duration-150"></a>
+                        <a href="{{ $title['link'] }}" class="text-sm leading-normal block text-gray-400 hover:text-white mt-1"> {{ $title['title'] }}</a>
+                        <div class="text-sm text-gray-400">{{ $title['character'] ? 'as '.$title['character'] : ' ' }}</div>
                     </div>
                     @endforeach
 

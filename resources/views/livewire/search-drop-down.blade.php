@@ -1,6 +1,6 @@
 <div>
     <div class="relative mt-3 md:mt-0" x-data="{ isOpen: true }" @click.away="isOpen = false">
-        <input wire:model.debounce.500ms="search" type="text" class="bg-gray-800 text-sm rounded-full w-64 pl-8 focus:outline-none focus:shadow-lg px-4 py-1 " placeholder="Search"
+        <input wire:model.debounce.500ms="search" type="text" class="bg-gray-800 text-sm rounded-full w-64 pl-8 focus:outline-none focus:shadow-lg px-4 py-1 " placeholder="Search Movies or Tv Series"
         x-ref="search"
         @keydown.window="
             if (event.keyCode === 191) {
@@ -24,15 +24,39 @@
         <ul>
             @forelse ($searchResults as $result)
                 <li class="border-b border-gray-700">
-                    <a href="{{ route('movies.show',$result['id']) }}" class="block hover:bg-gray-800 px-3 py-3 flex items-center">
-                        @if ($result['poster_path'])
-                            <img class="w-10" src="https://image.tmdb.org/t/p/w92/{{ $result['poster_path'] }}" alt="poster">
-                        @else
-                            <img src="https://via.placeholder.com/50x75" alt="poster" class="w-10">
-                        @endif
+                    @if ($result['media_type'] === 'movie')
+                        <a href="{{ route('movies.show',$result['id']) }}" class="block hover:bg-gray-800 px-3 py-3 flex items-center">
+                            @if ($result['poster_path'])
+                                <img class="w-10" src="https://image.tmdb.org/t/p/w92/{{ $result['poster_path'] }}" alt="poster">
+                            @else
+                                <img src="https://via.placeholder.com/50x75" alt="poster" class="w-10">
+                            @endif
 
-                        <span class="pl-2">{{ $result['title'] }}</span>
-                    </a>
+                            <span class="pl-2">{{ $result['title'] }}</span>
+                        </a>
+
+                    @elseif ($result['media_type'] === 'tv')
+                        <a href="{{ route('tv.show',$result['id']) }}" class="block hover:bg-gray-800 px-3 py-3 flex items-center">
+                            @if ($result['poster_path'])
+                                <img class="w-10" src="https://image.tmdb.org/t/p/w92/{{ $result['poster_path'] }}" alt="poster">
+                            @else
+                                <img src="https://via.placeholder.com/50x75" alt="poster" class="w-10">
+                            @endif
+
+                            <span class="pl-2">{{ $result['name'] }}</span>
+                        </a>
+                    @elseif ($result['media_type'] === 'preson')
+                        <a href="{{ route('actors.show',$result['id']) }}" class="block hover:bg-gray-800 px-3 py-3 flex items-center">
+                            @if ($result['poster_path'])
+                                <img class="w-10" src="https://image.tmdb.org/t/p/w92/{{ $result['profile_path'] }}" alt="poster">
+                            @else
+                                <img src="https://via.placeholder.com/50x75" alt="poster" class="w-10">
+                            @endif
+
+                            <span class="pl-2">{{ $result['name'] }}</span>
+                        </a>
+
+                    @endif
 
                 </li>
             @empty

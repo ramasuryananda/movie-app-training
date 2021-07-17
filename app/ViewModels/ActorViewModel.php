@@ -27,7 +27,6 @@ class ActorViewModel extends ViewModel
                 )->implode(', '),
             ]);
         });
-        // return collect($this->popularActor)->dump();
     }
 
     public function previous(){
