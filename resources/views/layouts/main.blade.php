@@ -33,7 +33,7 @@
                 @livewire('search-drop-down')
                 <div class="ml-4 mt-3 md:mt-0">
                     <a href="#">
-                        <img src="/img/avatar.jpg" alt="avatar" class="rounded-full w-8 h-8">
+                        <img src="/img/avatar(1).jpg" alt="avatar" class="rounded-full object-cover w-8 h-8">
                     </a>
                 </div>
             </div>

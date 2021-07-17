@@ -3,7 +3,7 @@
 
 @section('content')
     <div class="show-info border-b border-gray-800">
-        <div class="container justify-between mx-auto px-4 py-16 flex flex-col md:flex-row">
+        <div class="container justify-between items-start mx-auto px-4 py-16 flex flex-col md:flex-row">
             <img src="{{$show['poster_path']}}" alt="poster for {{ $show['name'] }}" class="w-full sm:w-1/2 h-auto object-contain" >
             <div class=" mt-10 md:ml-24 md:mt-0  flex-grow relative">
                 <h2 class="text-4xl font-semibold">
